@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 class GitUser extends Component {
-	constructor() {
-		super();
-		this.state = {
-			user: []
-		};
+	constructor(props) {
+		super(props);
 	}
 
 	render() {
@@ -13,7 +10,15 @@ class GitUser extends Component {
 
 		return (
 			<div>
-				<h1>Github Users!</h1>
+				{this.props.followers.map((user) => {
+					return (
+						<div>
+							<h2> {user.login}</h2>
+							<img src={user.avatar_url} alt="profile pic" />
+							<a> {user.html_url}</a>
+						</div>
+					);
+				})}
 			</div>
 		);
 	}

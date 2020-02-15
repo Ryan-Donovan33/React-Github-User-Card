@@ -24,14 +24,15 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.users);
+		console.log(this.state.usersData);
+		console.log(this.state.followersData);
 		return (
 			<div className="App">
 				<header className="App-header" />
-				<GitUser />
 				<h2> {this.state.usersData.login}</h2>
 				<p>{this.state.usersData.name} </p>
-				<img src={this.state.usersData.avatar} alt="profile pic" />
+				<img src={this.state.usersData.avatar_url} alt="profile pic" />
+				<GitUser followers={this.state.followersData} />
 				<div />
 			</div>
 		);
