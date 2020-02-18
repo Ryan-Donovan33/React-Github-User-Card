@@ -4,7 +4,11 @@ import GitUser from './components/GitUser';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const View = styled.div``;
+const View = styled.div`
+display: flex:
+flex-direction: column;
+align-content: center;
+`;
 
 class App extends Component {
 	constructor() {
@@ -30,13 +34,13 @@ class App extends Component {
 		console.log(this.state.usersData);
 		console.log(this.state.followersData);
 		return (
-			<View className="App">
-				<header className="App-header" />
-				<h2> {this.state.usersData.login}</h2>
-				<p>{this.state.usersData.name} </p>
-				<img src={this.state.usersData.avatar_url} alt="profile pic" />
+			<View>
+				<div>
+					<h2> {this.state.usersData.login}</h2>
+					<p>{this.state.usersData.name} </p>
+					<img src={this.state.usersData.avatar_url} alt="profile pic" />
+				</div>
 				<GitUser followers={this.state.followersData} />
-				<div />
 			</View>
 		);
 	}
